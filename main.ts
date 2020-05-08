@@ -1,30 +1,8 @@
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
-    info.changeScoreBy(1)
-    mySprite = sprites.create(img`
-. . . . . . . . . . . f f f f f f f . . . c c f f f . . . . . . . . . . 
-. . . . . . . . . . f b b b b b b b f f c b b b b f . . . . . . . . . . 
-. . . . . . . . . . f b b 1 1 1 b b b b b f f b f . . . . . . . . . . . 
-. . . . . . . . . . f b 1 1 1 1 1 f f b b b b f f . . . . . . . . . . . 
-. . . . . . . . . . f 1 c c c c 1 f f b b b b b c f f . . . . . . . . . 
-. . . . . . . . . . f f c 1 c 1 c 1 b b c b c b c c c f . . . . . . . . 
-. . . . . . . . . . . f c c 3 3 3 1 b b b c b c b c c c f . . c c c c c 
-. . . . . . . . . . . . c 3 3 3 c 1 b b b c b c b c c c c f c d d b b c 
-. . . . . . . . . . . . c 3 3 3 c 1 b b b b b b b c c c c c d d b c c . 
-. . . . . . . . . . . . c 3 3 3 c 1 1 b b b b b c c c c c c b b c c . . 
-. . . . . . . . . . . c c 3 3 1 c 1 1 b b b b c c c c c c f b c c f . . 
-. . . . . . . . . . . c c 1 3 c 1 1 c b b b c c c c c b b c f c c f . . 
-. . . . . . . . . . . c 1 1 1 1 1 1 c b b b f d d d d d c . f b b c f . 
-. . . . . . . . . . . . c c 1 1 1 1 f b d b b f d d d c . . . f b b f . 
-. . . . . . . . . . . . . . c c c f f f b d b b f c c . . . . . f b b f 
-. . . . . . . . . . . . . . . . . . . . f f f f f . . . . . . . . f f f 
-`, SpriteKind.Player)
-})
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
 })
 let projectile: Sprite = null
 let Gyu: Sprite = null
-let mySprite: Sprite = null
 scene.setBackgroundImage(img`
 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
@@ -147,7 +125,7 @@ d 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 d d d d d d d d d d d d 7 7 7 7 7 d d 
 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
 `)
-mySprite = sprites.create(img`
+let mySprite = sprites.create(img`
 . . . . . . . . . . . . . c c f f f . . . . . . . . . . . . . . 
 . . . . . . . . . . . . c d d b b f . . . . . . . . . . . . . . 
 . . . . . . . . . . . c d d b b f . . . . . . . . . . . . . . . 
@@ -165,7 +143,7 @@ f b b b 1 1 1 1 f f 1 b c b c b b b c c c c c c c b b b c f . .
 . . . . . . . c c c c c f b d b b f c . . . . . . . . . . . . . 
 . . . . . . . . . . . . . f f f f f . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
-controller.moveSprite(mySprite, 200, 200)
+controller.moveSprite(mySprite, 100, 100)
 info.setLife(10)
 info.startCountdown(30)
 game.onUpdateInterval(2000, function () {
@@ -187,8 +165,6 @@ b b c c c d d d 5 5 5 5 5 d b .
 . . . . c c d d d 5 5 5 b b . . 
 . . . . . . c c c c c b b . . . 
 `, SpriteKind.Food)
-    Gyu.setVelocity(Math.randomRange(0, 500), Math.randomRange(0, 500))
-    Gyu.setPosition(Math.randomRange(0, 10), Math.randomRange(0, 10))
 })
 game.onUpdateInterval(1000, function () {
     projectile = sprites.createProjectileFromSide(img`
